@@ -46,6 +46,11 @@ tidy:
 	@echo "==> Tidying module dependencies..."
 	$(GO) mod tidy
 
+## pre-commit: Run pre-commit hooks on all files
+pre-commit:
+	@echo "==> Running pre-commit hooks..."
+	@command -v pre-commit >/dev/null && pre-commit run --all-files || echo "pre-commit not installed locally (brew install pre-commit)"
+
 ## clean: Remove build artifacts and temporary files
 clean:
 	@echo "==> Cleaning build artifacts..."
