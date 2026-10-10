@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 732 379" width="732" height="379">
+  <defs>
+    <style>
+      .tui { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; font-variant-ligatures: none; fill: #eceff4; }
+      .dim { fill: #94a3b8; }
+      .dark-dim { fill: #64748b; }
+      .cyan { fill: #38bdf8; }
+      .green { fill: #10b981; font-weight: 700; }
+      .amber { fill: #f59e0b; font-weight: 700; }
+      .red { fill: #ef4444; font-weight: 700; }
+      .bold { font-weight: 700; }
+      .italic { font-style: italic; }
+      .underline { text-decoration: underline; }
+      @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      .cursor { animation: blink 1s infinite; fill: #eceff4; opacity: 0.8; }
+    </style>
+    
+    <filter id="winShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    
+  </defs>
+
+  
+  
+  <rect x="15" y="15" width="702" height="349" rx="12" fill="#2e3440" stroke="#4c566a" stroke-width="1.5" filter="url(#winShadow)"/>
+
+  
+  <path d="M 15 27 Q 15 15 27 15 L 705 15 Q 717 15 717 27 L 717 50 L 15 50 Z" fill="#3b4252"/>
+  <line x1="15" y1="50" x2="717" y2="50" stroke="#434c5e" stroke-width="1"/>
+
+  
+  <circle cx="38" cy="32" r="6" fill="#ef4444"/>
+  <circle cx="58" cy="32" r="6" fill="#f59e0b"/>
+  <circle cx="78" cy="32" r="6" fill="#10b981"/>
+  <text x="366" y="36" text-anchor="middle" class="tui" fill="#d8dee9" font-size="12">SRE Production Dashboard (Nord)</text>
+  
+
+  
+  
+  <g transform="translate(35, 68)">
+    
+    <rect x="0" y="0" width="172" height="24" rx="3" fill="#3b4252"/>
+    <text x="86" y="16" text-anchor="middle" class="tui dim" fill="#81a1c1" font-size="12">Global Matrix</text>
+    
+    <rect x="182" y="0" width="140" height="24" rx="3" fill="#88c0d0"/>
+    <text x="252" y="16" text-anchor="middle" class="tui bold" fill="#2e3440" font-size="12">EU Region</text>
+    
+    <rect x="332" y="0" width="140" height="24" rx="3" fill="#3b4252"/>
+    <text x="402" y="16" text-anchor="middle" class="tui dim" fill="#81a1c1" font-size="12">US Region</text>
+    
+  </g>
+  
+
+  
+  <g transform="translate(35, 106)">
+    
+    <rect x="0" y="0" width="662" height="208" rx="6" fill="#242933" stroke="#434c5e" stroke-width="1.5"/>
+    
+
+    
+    
+    <g transform="translate(16, 24)">
+      
+      <text x="0" y="0" class="tui bold" fill="#eceff4">SLO / Error Budget Burn Rate (Last 24h)</text>
+      
+
+      
+      
+      <rect x="456" y="-13" width="176" height="18" fill="#10b981" rx="2"/>
+      <text x="544" y="0" text-anchor="middle" class="tui bold" fill="#ffffff" font-size="11">SRE ON-CALL: ACTIVE</text>
+      
+    </g>
+    <line x1="16" y1="36" x2="646" y2="36" stroke="#434c5e" stroke-width="1"/>
+    
+
+    
+    <g transform="translate(16, 56)">
+      <text x="0" y="0" class="tui"><tspan x="0.00" class="bold" style="fill: #38bdf8;">┌</tspan><tspan x="8.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="16.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="24.00" class="bold" style="fill: #38bdf8;">&#160;Core&#160;Infrastructure&#160;Health&#160;Matrix&#160;</tspan><tspan x="304.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="312.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="320.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="328.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="336.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="344.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="352.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="360.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="368.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="376.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="384.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="392.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="400.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="408.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="416.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="424.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="432.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="440.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="448.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="456.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="464.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="472.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="480.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="488.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="496.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="504.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="512.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="520.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="528.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="536.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="544.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="552.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="560.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="568.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="576.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="584.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="592.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="600.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="608.00" class="bold" style="fill: #38bdf8;">┐</tspan></text>
+      <text x="0" y="21" class="tui"><tspan x="0.00">│</tspan><tspan x="8.00">&#160;&#160;Service&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Region&#160;&#160;&#160;&#160;&#160;&#160;&#160;Status&#160;&#160;&#160;&#160;&#160;&#160;&#160;P99&#160;Latency&#160;&#160;&#160;&#160;Error&#160;Budget&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="616.00">│</tspan></text>
+      <text x="0" y="42" class="tui"><tspan x="0.00">│</tspan><tspan x="8.00">&#160;&#160;</tspan><tspan x="24.00" class="bold">Auth-V2</tspan><tspan x="80.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;eu-west-1&#160;&#160;&#160;&#160;</tspan><tspan x="256.00" class="bold" style="fill: #10b981;">ONLINE</tspan><tspan x="304.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;14.2ms&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="480.00" style="fill: #10b981;">99.98%%</tspan><tspan x="536.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="616.00">│</tspan></text>
+      <text x="0" y="63" class="tui"><tspan x="0.00">│</tspan><tspan x="8.00">&#160;&#160;</tspan><tspan x="24.00" class="bold">Payment-GW</tspan><tspan x="104.00">&#160;&#160;&#160;&#160;&#160;&#160;eu-west-1&#160;&#160;&#160;&#160;</tspan><tspan x="256.00" class="bold" style="fill: #10b981;">ONLINE</tspan><tspan x="304.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;48.1ms&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="480.00" style="fill: #10b981;">99.95%%</tspan><tspan x="536.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="616.00">│</tspan></text>
+      <text x="0" y="84" class="tui"><tspan x="0.00">│</tspan><tspan x="8.00">&#160;&#160;</tspan><tspan x="24.00" class="bold">Catalog-DB</tspan><tspan x="104.00">&#160;&#160;&#160;&#160;&#160;&#160;eu-west-1&#160;&#160;&#160;&#160;</tspan><tspan x="256.00" class="bold" style="fill: #f59e0b;">DEGRADED</tspan><tspan x="320.00">&#160;&#160;&#160;&#160;&#160;120.4ms&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="480.00" style="fill: #f59e0b;">99.40%%</tspan><tspan x="536.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="616.00">│</tspan></text>
+      <text x="0" y="105" class="tui"><tspan x="0.00">│</tspan><tspan x="8.00">&#160;&#160;</tspan><tspan x="24.00" class="bold">Blob-Storage</tspan><tspan x="120.00">&#160;&#160;&#160;&#160;global&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="256.00" class="bold" style="fill: #10b981;">ONLINE</tspan><tspan x="304.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;8.5ms&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="480.00" style="fill: #10b981;">99.99%%</tspan><tspan x="536.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="616.00">│</tspan></text>
+      <text x="0" y="126" class="tui"><tspan x="0.00" class="bold" style="fill: #38bdf8;">└</tspan><tspan x="8.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="16.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="24.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="32.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="40.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="48.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="56.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="64.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="72.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="80.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="88.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="96.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="104.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="112.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="120.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="128.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="136.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="144.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="152.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="160.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="168.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="176.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="184.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="192.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="200.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="208.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="216.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="224.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="232.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="240.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="248.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="256.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="264.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="272.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="280.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="288.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="296.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="304.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="312.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="320.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="328.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="336.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="344.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="352.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="360.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="368.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="376.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="384.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="392.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="400.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="408.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="416.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="424.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="432.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="440.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="448.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="456.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="464.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="472.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="480.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="488.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="496.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="504.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="512.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="520.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="528.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="536.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="544.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="552.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="560.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="568.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="576.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="584.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="592.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="600.00" class="bold" style="fill: #38bdf8;">─</tspan><tspan x="608.00" class="bold" style="fill: #38bdf8;">┘</tspan></text>
+
+      
+    </g>
+  </g>
+</svg>

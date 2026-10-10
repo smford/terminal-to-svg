@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 748 677" width="748" height="677">
+  <defs>
+    <style>
+      .tui { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; font-variant-ligatures: none; fill: #e2e8f0; }
+      .dim { fill: #94a3b8; }
+      .dark-dim { fill: #64748b; }
+      .cyan { fill: #38bdf8; }
+      .green { fill: #10b981; font-weight: 700; }
+      .amber { fill: #f59e0b; font-weight: 700; }
+      .red { fill: #ef4444; font-weight: 700; }
+      .bold { font-weight: 700; }
+      .italic { font-style: italic; }
+      .underline { text-decoration: underline; }
+      @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      .cursor { animation: blink 1s infinite; fill: #e2e8f0; opacity: 0.8; }
+    </style>
+    
+    <filter id="winShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    
+  </defs>
+
+  
+  
+  <rect x="15" y="15" width="718" height="647" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5" filter="url(#winShadow)"/>
+
+  
+  <path d="M 15 27 Q 15 15 27 15 L 721 15 Q 733 15 733 27 L 733 50 L 15 50 Z" fill="#1e293b"/>
+  <line x1="15" y1="50" x2="733" y2="50" stroke="#334155" stroke-width="1"/>
+
+  
+  <circle cx="38" cy="32" r="6" fill="#ef4444"/>
+  <circle cx="58" cy="32" r="6" fill="#f59e0b"/>
+  <circle cx="78" cy="32" r="6" fill="#10b981"/>
+  <text x="374" y="36" text-anchor="middle" class="tui" fill="#64748b" font-size="12">Live Terminal Snapshot (Colorized)</text>
+  
+
+  
+
+  
+  <g transform="translate(35, 68)">
+    
+    <rect x="0" y="0" width="678" height="544" rx="6" fill="#121826" stroke="#3d4255" stroke-width="1.5"/>
+    
+
+    
+    
+    <g transform="translate(16, 24)">
+      
+
+      
+      
+      <rect x="520" y="-13" width="128" height="18" fill="#10b981" rx="2"/>
+      <text x="584" y="0" text-anchor="middle" class="tui bold" fill="#ffffff" font-size="11">LIVE SNAPSHOT</text>
+      
+    </g>
+    <line x1="16" y1="36" x2="662" y2="36" stroke="#3d4255" stroke-width="1"/>
+    
+
+    
+    <g transform="translate(16, 56)">
+      <text x="0" y="0" class="tui"><tspan x="0.00">&#160;&#160;•&#160;Errors&#160;([</tspan><tspan x="104.00" class="bold" style="fill: #ef4444;">ERROR</tspan><tspan x="144.00">],&#160;</tspan><tspan x="168.00" class="bold" style="fill: #ef4444;">CrashLoopBackOff</tspan><tspan x="296.00">)&#160;→&#160;bold&#160;red&#160;#ef4444</tspan></text>
+      <text x="0" y="21" class="tui"><tspan x="0.00">&#160;&#160;•&#160;Key/value&#160;pairs&#160;(</tspan><tspan x="168.00" style="fill: #38bdf8;">key</tspan><tspan x="192.00">=value)&#160;→&#160;cyan&#160;#38bdf8</tspan></text>
+      <text x="0" y="42" class="tui"><tspan x="0.00">&#160;&#160;•&#160;Prompts&#160;(➜&#160;~)&#160;→&#160;cyan&#160;/&#160;magenta</tspan></text>
+      <text x="0" y="63" class="tui"><tspan x="0.00">&#160;&#160;&#160;&#160;&#160;Would&#160;you&#160;like&#160;me&#160;to&#160;implement&#160;the&#160;Syntax/Log&#160;Colorizer&#160;heuristic&#160;for&#160;live</tspan></text>
+      <text x="0" y="84" class="tui"><tspan x="0.00">terminal&#160;captures&#160;so&#160;uncolored&#160;sessions&#160;automatically&#160;receive&#160;the&#160;styling</tspan></text>
+      <text x="0" y="105" class="tui"><tspan x="0.00">&#160;&#160;from&#160;tui-logs.svg?</tspan></text>
+      <text x="0" y="126" class="tui"><tspan x="0.00">&#160;</tspan><tspan x="8.00">─</tspan><tspan x="16.00">─</tspan><tspan x="24.00">─</tspan><tspan x="32.00">─</tspan><tspan x="40.00">─</tspan><tspan x="48.00">─</tspan><tspan x="56.00">─</tspan><tspan x="64.00">─</tspan><tspan x="72.00">─</tspan><tspan x="80.00">─</tspan><tspan x="88.00">─</tspan><tspan x="96.00">─</tspan><tspan x="104.00">─</tspan><tspan x="112.00">─</tspan><tspan x="120.00">─</tspan><tspan x="128.00">─</tspan><tspan x="136.00">─</tspan><tspan x="144.00">─</tspan><tspan x="152.00">─</tspan><tspan x="160.00">─</tspan><tspan x="168.00">─</tspan><tspan x="176.00">─</tspan><tspan x="184.00">─</tspan><tspan x="192.00">─</tspan><tspan x="200.00">─</tspan><tspan x="208.00">─</tspan><tspan x="216.00">─</tspan><tspan x="224.00">─</tspan><tspan x="232.00">─</tspan><tspan x="240.00">─</tspan><tspan x="248.00">─</tspan><tspan x="256.00">─</tspan><tspan x="264.00">─</tspan><tspan x="272.00">─</tspan><tspan x="280.00">─</tspan><tspan x="288.00">─</tspan><tspan x="296.00">─</tspan><tspan x="304.00">─</tspan><tspan x="312.00">─</tspan><tspan x="320.00">─</tspan><tspan x="328.00">─</tspan><tspan x="336.00">─</tspan><tspan x="344.00">─</tspan><tspan x="352.00">─</tspan><tspan x="360.00">─</tspan><tspan x="368.00">─</tspan><tspan x="376.00">─</tspan><tspan x="384.00">─</tspan><tspan x="392.00">─</tspan><tspan x="400.00">─</tspan><tspan x="408.00">─</tspan><tspan x="416.00">─</tspan><tspan x="424.00">─</tspan><tspan x="432.00">─</tspan><tspan x="440.00">─</tspan><tspan x="448.00">─</tspan><tspan x="456.00">─</tspan><tspan x="464.00">─</tspan><tspan x="472.00">─</tspan><tspan x="480.00">─</tspan></text>
+      <text x="0" y="147" class="tui"><tspan x="0.00" class="bold" style="fill: #3b82f6;">&gt;&#160;</tspan><tspan x="16.00">yes</tspan></text>
+      <text x="0" y="168" class="tui"><tspan x="0.00">&#160;</tspan><tspan x="8.00" class="bold" style="fill: #3b82f6;">●&#160;</tspan><tspan x="24.00">Explored&#160;1&#160;file&#160;(tui-logs.svg)</tspan></text>
+      <text x="0" y="189" class="tui"><tspan x="0.00" class="bold" style="fill: #3b82f6;">●&#160;</tspan><tspan x="16.00">Edited&#160;1&#160;file&#160;(colorize.go)</tspan></text>
+      <text x="0" y="210" class="tui"><tspan x="0.00">…&#160;12&#160;more&#160;actions&#160;(4&#160;reads,&#160;8&#160;commands:&#160;3&#160;</tspan><tspan x="336.00" class="bold" style="fill: #ef4444;">failed</tspan><tspan x="384.00">)&#160;…</tspan></text>
+      <text x="0" y="231" class="tui"><tspan x="0.00" class="bold" style="fill: #3b82f6;">●&#160;</tspan><tspan x="16.00">Ran&#160;19&#160;commands&#160;(+15&#160;·&#160;make&#160;build)</tspan></text>
+      <text x="0" y="252" class="tui"><tspan x="0.00" class="bold" style="fill: #3b82f6;">●&#160;</tspan><tspan x="16.00" class="bold" style="fill: #10b981;">Running</tspan><tspan x="72.00">&#160;(./termtosvg&#160;-o&#160;examples/11-live-terminal.svg&#160;-auto-crop&#160;-title&#160;&#34;Live</tspan></text>
+      <text x="0" y="273" class="tui"><tspan x="0.00">Terminal&#160;Snapshot&#160;(Colorized)&#34;&#160;-badge&#160;&#34;LIVE&#160;SNAPSHOT&#34;)&#160;(ctrl+o&#160;to&#160;expand)</tspan></text>
+      <text x="0" y="294" class="tui"><tspan x="0.00">⢿&#160;&#160;</tspan><tspan x="24.00" class="bold" style="fill: #10b981;">Running</tspan><tspan x="80.00">&#160;command...</tspan></text>
+      <text x="0" y="315" class="tui"><tspan x="0.00">└</tspan><tspan x="8.00">&#160;Tip:&#160;Use&#160;/skills&#160;to&#160;browse&#160;and&#160;manage&#160;agent&#160;skills.</tspan></text>
+      <text x="0" y="336" class="tui"><tspan x="0.00">─</tspan><tspan x="8.00">─</tspan><tspan x="16.00">─</tspan><tspan x="24.00">─</tspan><tspan x="32.00">─</tspan><tspan x="40.00">─</tspan><tspan x="48.00">─</tspan><tspan x="56.00">─</tspan><tspan x="64.00">─</tspan><tspan x="72.00">─</tspan><tspan x="80.00">─</tspan><tspan x="88.00">─</tspan><tspan x="96.00">─</tspan><tspan x="104.00">─</tspan><tspan x="112.00">─</tspan><tspan x="120.00">─</tspan><tspan x="128.00">─</tspan><tspan x="136.00">─</tspan><tspan x="144.00">─</tspan><tspan x="152.00">─</tspan><tspan x="160.00">─</tspan><tspan x="168.00">─</tspan><tspan x="176.00">─</tspan><tspan x="184.00">─</tspan><tspan x="192.00">─</tspan><tspan x="200.00">─</tspan><tspan x="208.00">─</tspan><tspan x="216.00">─</tspan><tspan x="224.00">─</tspan><tspan x="232.00">─</tspan><tspan x="240.00">─</tspan><tspan x="248.00">─</tspan><tspan x="256.00">─</tspan><tspan x="264.00">─</tspan><tspan x="272.00">─</tspan><tspan x="280.00">─</tspan><tspan x="288.00">─</tspan><tspan x="296.00">─</tspan><tspan x="304.00">─</tspan><tspan x="312.00">─</tspan><tspan x="320.00">─</tspan><tspan x="328.00">─</tspan><tspan x="336.00">─</tspan><tspan x="344.00">─</tspan><tspan x="352.00">─</tspan><tspan x="360.00">─</tspan><tspan x="368.00">─</tspan><tspan x="376.00">─</tspan><tspan x="384.00">─</tspan><tspan x="392.00">─</tspan><tspan x="400.00">─</tspan><tspan x="408.00">─</tspan><tspan x="416.00">─</tspan><tspan x="424.00">─</tspan><tspan x="432.00">─</tspan><tspan x="440.00">─</tspan><tspan x="448.00">─</tspan><tspan x="456.00">─</tspan><tspan x="464.00">─</tspan><tspan x="472.00">─</tspan><tspan x="480.00">─</tspan><tspan x="488.00">─</tspan><tspan x="496.00">─</tspan><tspan x="504.00">─</tspan><tspan x="512.00">─</tspan><tspan x="520.00">─</tspan><tspan x="528.00">─</tspan><tspan x="536.00">─</tspan><tspan x="544.00">─</tspan><tspan x="552.00">─</tspan><tspan x="560.00">─</tspan><tspan x="568.00">─</tspan><tspan x="576.00">─</tspan><tspan x="584.00">─</tspan><tspan x="592.00">─</tspan><tspan x="600.00">─</tspan><tspan x="608.00">─</tspan><tspan x="616.00">─</tspan><tspan x="624.00">─</tspan><tspan x="632.00">─</tspan></text>
+      <text x="0" y="357" class="tui"><tspan x="0.00">─</tspan><tspan x="8.00">─</tspan><tspan x="16.00">─</tspan><tspan x="24.00">─</tspan><tspan x="32.00">─</tspan><tspan x="40.00">─</tspan><tspan x="48.00">─</tspan><tspan x="56.00">─</tspan><tspan x="64.00">─</tspan><tspan x="72.00">─</tspan><tspan x="80.00">─</tspan><tspan x="88.00">─</tspan><tspan x="96.00">─</tspan><tspan x="104.00">─</tspan><tspan x="112.00">─</tspan><tspan x="120.00">─</tspan><tspan x="128.00">─</tspan><tspan x="136.00">─</tspan><tspan x="144.00">─</tspan><tspan x="152.00">─</tspan><tspan x="160.00">─</tspan><tspan x="168.00">─</tspan><tspan x="176.00">─</tspan><tspan x="184.00">─</tspan><tspan x="192.00">─</tspan><tspan x="200.00">─</tspan><tspan x="208.00">─</tspan><tspan x="216.00">─</tspan><tspan x="224.00">─</tspan><tspan x="232.00">─</tspan><tspan x="240.00">─</tspan><tspan x="248.00">─</tspan><tspan x="256.00">─</tspan><tspan x="264.00">─</tspan><tspan x="272.00">─</tspan><tspan x="280.00">─</tspan><tspan x="288.00">─</tspan><tspan x="296.00">─</tspan><tspan x="304.00">─</tspan><tspan x="312.00">─</tspan><tspan x="320.00">─</tspan><tspan x="328.00">─</tspan><tspan x="336.00">─</tspan><tspan x="344.00">─</tspan><tspan x="352.00">─</tspan><tspan x="360.00">─</tspan><tspan x="368.00">─</tspan><tspan x="376.00">─</tspan><tspan x="384.00">─</tspan><tspan x="392.00">─</tspan><tspan x="400.00">─</tspan><tspan x="408.00">─</tspan><tspan x="416.00">─</tspan><tspan x="424.00">─</tspan><tspan x="432.00">─</tspan><tspan x="440.00">─</tspan><tspan x="448.00">─</tspan><tspan x="456.00">─</tspan><tspan x="464.00">─</tspan><tspan x="472.00">─</tspan><tspan x="480.00">─</tspan><tspan x="488.00">─</tspan><tspan x="496.00">─</tspan><tspan x="504.00">─</tspan><tspan x="512.00">─</tspan><tspan x="520.00">─</tspan><tspan x="528.00">─</tspan><tspan x="536.00">─</tspan><tspan x="544.00">─</tspan><tspan x="552.00">─</tspan><tspan x="560.00">─</tspan><tspan x="568.00">─</tspan><tspan x="576.00">─</tspan><tspan x="584.00">─</tspan></text>
+      <text x="0" y="378" class="tui"><tspan x="0.00" class="bold" style="fill: #3b82f6;">&gt;</tspan></text>
+      <text x="0" y="399" class="tui"><tspan x="0.00">─</tspan><tspan x="8.00">─</tspan><tspan x="16.00">─</tspan><tspan x="24.00">─</tspan><tspan x="32.00">─</tspan><tspan x="40.00">─</tspan><tspan x="48.00">─</tspan><tspan x="56.00">─</tspan><tspan x="64.00">─</tspan><tspan x="72.00">─</tspan><tspan x="80.00">─</tspan><tspan x="88.00">─</tspan><tspan x="96.00">─</tspan><tspan x="104.00">─</tspan><tspan x="112.00">─</tspan><tspan x="120.00">─</tspan><tspan x="128.00">─</tspan><tspan x="136.00">─</tspan><tspan x="144.00">─</tspan><tspan x="152.00">─</tspan><tspan x="160.00">─</tspan><tspan x="168.00">─</tspan><tspan x="176.00">─</tspan><tspan x="184.00">─</tspan><tspan x="192.00">─</tspan><tspan x="200.00">─</tspan><tspan x="208.00">─</tspan><tspan x="216.00">─</tspan><tspan x="224.00">─</tspan><tspan x="232.00">─</tspan><tspan x="240.00">─</tspan><tspan x="248.00">─</tspan><tspan x="256.00">─</tspan><tspan x="264.00">─</tspan><tspan x="272.00">─</tspan><tspan x="280.00">─</tspan><tspan x="288.00">─</tspan><tspan x="296.00">─</tspan><tspan x="304.00">─</tspan><tspan x="312.00">─</tspan><tspan x="320.00">─</tspan><tspan x="328.00">─</tspan><tspan x="336.00">─</tspan><tspan x="344.00">─</tspan><tspan x="352.00">─</tspan><tspan x="360.00">─</tspan><tspan x="368.00">─</tspan><tspan x="376.00">─</tspan><tspan x="384.00">─</tspan><tspan x="392.00">─</tspan><tspan x="400.00">─</tspan><tspan x="408.00">─</tspan><tspan x="416.00">─</tspan><tspan x="424.00">─</tspan><tspan x="432.00">─</tspan><tspan x="440.00">─</tspan><tspan x="448.00">─</tspan><tspan x="456.00">─</tspan><tspan x="464.00">─</tspan><tspan x="472.00">─</tspan><tspan x="480.00">─</tspan><tspan x="488.00">─</tspan><tspan x="496.00">─</tspan><tspan x="504.00">─</tspan><tspan x="512.00">─</tspan><tspan x="520.00">─</tspan><tspan x="528.00">─</tspan><tspan x="536.00">─</tspan><tspan x="544.00">─</tspan><tspan x="552.00">─</tspan><tspan x="560.00">─</tspan><tspan x="568.00">─</tspan><tspan x="576.00">─</tspan><tspan x="584.00">─</tspan><tspan x="592.00">─</tspan><tspan x="600.00">─</tspan><tspan x="608.00">─</tspan><tspan x="616.00">─</tspan><tspan x="624.00">─</tspan><tspan x="632.00">─</tspan></text>
+      <text x="0" y="420" class="tui"><tspan x="0.00">─</tspan><tspan x="8.00">─</tspan><tspan x="16.00">─</tspan><tspan x="24.00">─</tspan><tspan x="32.00">─</tspan><tspan x="40.00">─</tspan><tspan x="48.00">─</tspan><tspan x="56.00">─</tspan><tspan x="64.00">─</tspan><tspan x="72.00">─</tspan><tspan x="80.00">─</tspan><tspan x="88.00">─</tspan><tspan x="96.00">─</tspan><tspan x="104.00">─</tspan><tspan x="112.00">─</tspan><tspan x="120.00">─</tspan><tspan x="128.00">─</tspan><tspan x="136.00">─</tspan><tspan x="144.00">─</tspan><tspan x="152.00">─</tspan><tspan x="160.00">─</tspan><tspan x="168.00">─</tspan><tspan x="176.00">─</tspan><tspan x="184.00">─</tspan><tspan x="192.00">─</tspan><tspan x="200.00">─</tspan><tspan x="208.00">─</tspan><tspan x="216.00">─</tspan><tspan x="224.00">─</tspan><tspan x="232.00">─</tspan><tspan x="240.00">─</tspan><tspan x="248.00">─</tspan><tspan x="256.00">─</tspan><tspan x="264.00">─</tspan><tspan x="272.00">─</tspan><tspan x="280.00">─</tspan><tspan x="288.00">─</tspan><tspan x="296.00">─</tspan><tspan x="304.00">─</tspan><tspan x="312.00">─</tspan><tspan x="320.00">─</tspan><tspan x="328.00">─</tspan><tspan x="336.00">─</tspan><tspan x="344.00">─</tspan><tspan x="352.00">─</tspan><tspan x="360.00">─</tspan><tspan x="368.00">─</tspan><tspan x="376.00">─</tspan><tspan x="384.00">─</tspan><tspan x="392.00">─</tspan><tspan x="400.00">─</tspan><tspan x="408.00">─</tspan><tspan x="416.00">─</tspan><tspan x="424.00">─</tspan><tspan x="432.00">─</tspan><tspan x="440.00">─</tspan><tspan x="448.00">─</tspan><tspan x="456.00">─</tspan><tspan x="464.00">─</tspan><tspan x="472.00">─</tspan><tspan x="480.00">─</tspan><tspan x="488.00">─</tspan><tspan x="496.00">─</tspan><tspan x="504.00">─</tspan><tspan x="512.00">─</tspan><tspan x="520.00">─</tspan><tspan x="528.00">─</tspan><tspan x="536.00">─</tspan><tspan x="544.00">─</tspan><tspan x="552.00">─</tspan><tspan x="560.00">─</tspan><tspan x="568.00">─</tspan><tspan x="576.00">─</tspan><tspan x="584.00">─</tspan></text>
+      <text x="0" y="441" class="tui"><tspan x="0.00">esc&#160;to&#160;cancel</tspan></text>
+      <text x="0" y="462" class="tui"><tspan x="0.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Gemini&#160;3.8&#160;Flash&#160;·&#160;medium</tspan></text>
+
+      
+    </g>
+  </g>
+</svg>
