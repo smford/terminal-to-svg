@@ -9,3 +9,8 @@ Thumbs.db
 # Test outputs
 *.test
 *.out
+*.sarif
+
+# Local PR drafts and notes
+pr.txt
+pr*.txt
