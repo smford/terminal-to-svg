@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>terminal-to-svg — Render Pixel-Perfect Terminal SVGs</title>
+  <meta name="description" content="Render pixel-perfect SVGs from terminal commands, live screen snapshots, tmux panes, and ANSI streams.">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=terminal-to-svg"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'terminal-to-svg', { send_page_view: false });
+  </script>
+  <script src="js/analytics.js" defer></script>
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-bright: #f0f6fc;
+      --accent: #58a6ff;
+      --accent-hover: #1f6feb;
+      --success: #3fb950;
+      --code-bg: #090d13;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 0 1rem;
+    }
+    header {
+      max-width: 960px;
+      margin: 3rem auto 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: var(--text-bright);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .badge strong { color: var(--accent); }
+    .container {
+      max-width: 960px;
+      margin: 0 auto 4rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    h2 {
+      color: var(--text-bright);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.9rem;
+      color: #79c0ff;
+      margin-bottom: 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem;
+    }
+    .feature-item h3 {
+      color: var(--text-bright);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+    .btn {
+      background: var(--accent);
+      color: #ffffff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: var(--accent-hover);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">
+      Latest Release: <span id="release-version">v0.1.0</span>
+    </div>
+    <h1>terminal-to-svg</h1>
+    <p>Pixel-perfect terminal SVGs for documentation, GitHub READMEs, and CI/CD pipelines.</p>
+    <div class="button-group">
+      <a href="https://github.com/smford/terminal-to-svg" class="btn">View on GitHub</a>
+      <a href="https://github.com/smford/terminal-to-svg/releases/tag/v0.1.0" class="btn" style="background:#238636;">Release Notes (<span id="release-version-number">0.1.0</span>)</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Quick Install</h2>
+      <pre><code># Install via Homebrew
+brew install smford/tap/termtosvg
+
+# Or install with Go
+go install github.com/smford/terminal-to-svg/cmd/termtosvg@latest
+
+# Or run via Docker
+docker run --rm ghcr.io/smford/terminal-to-svg:v0.1.0 -version</code></pre>
+    </div>
+
+    <div class="card">
+      <h2>Usage Modes</h2>
+      <div class="grid">
+        <div class="feature-item">
+          <h3>1. Live Screen Snapshot</h3>
+          <p>Instantly captures what is currently rendered in your terminal window:</p>
+          <pre><code>termtosvg -o snapshot.svg</code></pre>
+        </div>
+        <div class="feature-item">
+          <h3>2. Execute Command</h3>
+          <p>Runs a command in a dedicated virtual PTY and renders the final frame:</p>
+          <pre><code>termtosvg -o top.svg -- top -b -n 1</code></pre>
+        </div>
+        <div class="feature-item">
+          <h3>3. Stdin ANSI Pipe</h3>
+          <p>Pipelines colored logs directly into crisp SVG diagrams:</p>
+          <pre><code>cat build.log | termtosvg -o build.svg</code></pre>
+        </div>
+        <div class="feature-item">
+          <h3>4. Tmux Pane Capture</h3>
+          <p>Capture any background or active tmux pane cleanly:</p>
+          <pre><code>termtosvg -tmux "%1" -o pane.svg</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Enterprise DevSecOps Features</h2>
+      <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+        <li><strong>Automatic Secret Masking:</strong> <code>-mask-secrets</code> redacts IPs, bearer tokens, JWTs, and passwords automatically.</li>
+        <li><strong>Multi-tab Window Frames:</strong> Native rendering of multiple editor/tab panes via <code>-tabs</code>.</li>
+        <li><strong>Subheader Cards & Badges:</strong> Display status labels, host names, and timestamps directly on the SVG header.</li>
+        <li><strong>Continuous Compliance:</strong> Full OpenSSF Scorecard, Semgrep, CodeQL, OWASP ZAP, and Cosign verified artifact releases.</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

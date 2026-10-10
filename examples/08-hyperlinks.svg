@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 280" width="650" height="280">
+  <defs>
+    <style>
+      .tui { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; font-variant-ligatures: none; fill: #e2e8f0; }
+      .dim { fill: #94a3b8; }
+      .dark-dim { fill: #64748b; }
+      .cyan { fill: #38bdf8; }
+      .green { fill: #10b981; font-weight: 700; }
+      .amber { fill: #f59e0b; font-weight: 700; }
+      .red { fill: #ef4444; font-weight: 700; }
+      .bold { font-weight: 700; }
+      .italic { font-style: italic; }
+      .underline { text-decoration: underline; }
+      @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      .cursor { animation: blink 1s infinite; fill: #e2e8f0; opacity: 0.8; }
+    </style>
+    
+    <filter id="winShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    
+  </defs>
+
+  
+  
+  <rect x="15" y="15" width="620" height="250" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5" filter="url(#winShadow)"/>
+
+  
+  <path d="M 15 27 Q 15 15 27 15 L 623 15 Q 635 15 635 27 L 635 50 L 15 50 Z" fill="#1e293b"/>
+  <line x1="15" y1="50" x2="635" y2="50" stroke="#334155" stroke-width="1"/>
+
+  
+  <circle cx="38" cy="32" r="6" fill="#ef4444"/>
+  <circle cx="58" cy="32" r="6" fill="#f59e0b"/>
+  <circle cx="78" cy="32" r="6" fill="#10b981"/>
+  <text x="325" y="36" text-anchor="middle" class="tui" fill="#64748b" font-size="12">Interactive Hyperlinks (OSC 8)</text>
+  
+
+  
+
+  
+  <g transform="translate(35, 68)">
+    
+    <rect x="0" y="0" width="580" height="145" rx="6" fill="#121826" stroke="#3d4255" stroke-width="1.5"/>
+    
+
+    
+    
+    <g transform="translate(16, 24)">
+      
+      <text x="0" y="0" class="tui bold" fill="#e2e8f0">Live Clickable SVG Links</text>
+      
+
+      
+      
+      <rect x="422" y="-13" width="128" height="18" fill="#10b981" rx="2"/>
+      <text x="486" y="0" text-anchor="middle" class="tui bold" fill="#ffffff" font-size="11">OSC 8: ACTIVE</text>
+      
+    </g>
+    <line x1="16" y1="36" x2="564" y2="36" stroke="#3d4255" stroke-width="1"/>
+    
+
+    
+    <g transform="translate(16, 56)">
+      <text x="0" y="0" class="tui"><tspan x="0.00" class="bold" style="fill: #38bdf8;">Official&#160;Documentation&#160;Links:</tspan></text>
+      <text x="0" y="21" class="tui"><tspan x="0.00">-&#160;</tspan><a href="https://github.com/smford/terminal-to-svg" target="_blank"><tspan x="16.00">GitHub&#160;Repository&#160;(Click&#160;Me)</tspan></a></text>
+      <text x="0" y="42" class="tui"><tspan x="0.00">-&#160;</tspan><a href="https://golang.org/doc" target="_blank"><tspan x="16.00">Official&#160;Go&#160;Language&#160;Docs&#160;(Click&#160;Me)</tspan></a></text>
+      <text x="0" y="63" class="tui"><tspan x="0.00">-&#160;</tspan><a href="https://kubernetes.io/docs" target="_blank"><tspan x="16.00">Kubernetes&#160;Documentation&#160;(Click&#160;Me)</tspan></a></text>
+
+      
+    </g>
+  </g>
+</svg>

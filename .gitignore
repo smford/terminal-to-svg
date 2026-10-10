@@ -1,0 +1,11 @@
+# Binaries and build artifacts
+/termtosvg
+bin/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Test outputs
+*.test
+*.out

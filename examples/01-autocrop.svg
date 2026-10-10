@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 414" width="650" height="414">
+  <defs>
+    <style>
+      .tui { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; font-variant-ligatures: none; fill: #e2e8f0; }
+      .dim { fill: #94a3b8; }
+      .dark-dim { fill: #64748b; }
+      .cyan { fill: #38bdf8; }
+      .green { fill: #10b981; font-weight: 700; }
+      .amber { fill: #f59e0b; font-weight: 700; }
+      .red { fill: #ef4444; font-weight: 700; }
+      .bold { font-weight: 700; }
+      .italic { font-style: italic; }
+      .underline { text-decoration: underline; }
+      @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      .cursor { animation: blink 1s infinite; fill: #e2e8f0; opacity: 0.8; }
+    </style>
+    
+    <filter id="winShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+    
+  </defs>
+
+  
+  
+  <rect x="15" y="15" width="620" height="384" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5" filter="url(#winShadow)"/>
+
+  
+  <path d="M 15 27 Q 15 15 27 15 L 623 15 Q 635 15 635 27 L 635 50 L 15 50 Z" fill="#1e293b"/>
+  <line x1="15" y1="50" x2="635" y2="50" stroke="#334155" stroke-width="1"/>
+
+  
+  <circle cx="38" cy="32" r="6" fill="#ef4444"/>
+  <circle cx="58" cy="32" r="6" fill="#f59e0b"/>
+  <circle cx="78" cy="32" r="6" fill="#10b981"/>
+  <text x="325" y="36" text-anchor="middle" class="tui" fill="#64748b" font-size="12">git status — working tree</text>
+  
+
+  
+
+  
+  <g transform="translate(35, 68)">
+    
+    <rect x="0" y="0" width="580" height="281" rx="6" fill="#121826" stroke="#3d4255" stroke-width="1.5"/>
+    
+
+    
+
+    
+    <g transform="translate(16, 24)">
+      <text x="0" y="0" class="tui"><tspan x="0.00" class="bold" style="fill: #38bdf8;">➜&#160;&#160;terminal-to-svg</tspan><tspan x="144.00">&#160;</tspan><tspan x="152.00" class="bold" style="fill: #10b981;">git:(main)</tspan><tspan x="232.00">&#160;git&#160;status</tspan></text>
+      <text x="0" y="21" class="tui"><tspan x="0.00">On&#160;branch&#160;</tspan><tspan x="80.00" class="bold" style="fill: #10b981;">main</tspan></text>
+      <text x="0" y="42" class="tui"><tspan x="0.00">Your&#160;branch&#160;is&#160;up&#160;to&#160;date&#160;with&#160;&#39;origin/main&#39;.</tspan></text>
+      <text x="0" y="84" class="tui"><tspan x="0.00">Changes&#160;to&#160;be&#160;committed:</tspan></text>
+      <text x="0" y="105" class="tui"><tspan x="0.00">&#160;&#160;(use&#160;&#34;git&#160;restore&#160;--staged&#160;&lt;file&gt;...&#34;&#160;to&#160;unstage)</tspan></text>
+      <text x="0" y="126" class="tui"><tspan x="0.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="64.00" style="fill: #10b981;">modified:&#160;&#160;&#160;README.md</tspan></text>
+      <text x="0" y="147" class="tui"><tspan x="0.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="64.00" style="fill: #10b981;">new&#160;file:&#160;&#160;&#160;cmd/termtosvg/main.go</tspan></text>
+      <text x="0" y="189" class="tui"><tspan x="0.00">Untracked&#160;files:</tspan></text>
+      <text x="0" y="210" class="tui"><tspan x="0.00">&#160;&#160;(use&#160;&#34;git&#160;add&#160;&lt;file&gt;...&#34;&#160;to&#160;include&#160;in&#160;what&#160;will&#160;be&#160;committed)</tspan></text>
+      <text x="0" y="231" class="tui"><tspan x="0.00">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="64.00" style="fill: #ef4444;">examples/</tspan></text>
+
+      
+      <rect x="136" y="220" width="8" height="13" class="cursor"/>
+      
+    </g>
+  </g>
+</svg>
