@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 724 347" width="724" height="347">
+  <defs>
+    <style>
+      .tui { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; font-variant-ligatures: none; fill: #cdd6f4; }
+      .dim { fill: #94a3b8; }
+      .dark-dim { fill: #64748b; }
+      .cyan { fill: #38bdf8; }
+      .green { fill: #10b981; font-weight: 700; }
+      .amber { fill: #f59e0b; font-weight: 700; }
+      .red { fill: #ef4444; font-weight: 700; }
+      .bold { font-weight: 700; }
+      .italic { font-style: italic; }
+      .underline { text-decoration: underline; }
+      @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      .cursor { animation: blink 1s infinite; fill: #cdd6f4; opacity: 0.8; }
+    </style>
+
+    <filter id="winShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+  </defs>
+
+
+
+  <rect x="15" y="15" width="694" height="317" rx="12" fill="#1e1e2e" stroke="#45475a" stroke-width="1.5" filter="url(#winShadow)"/>
+
+
+  <path d="M 15 27 Q 15 15 27 15 L 697 15 Q 709 15 709 27 L 709 50 L 15 50 Z" fill="#181825"/>
+  <line x1="15" y1="50" x2="709" y2="50" stroke="#313244" stroke-width="1"/>
+
+
+  <circle cx="38" cy="32" r="6" fill="#ef4444"/>
+  <circle cx="58" cy="32" r="6" fill="#f59e0b"/>
+  <circle cx="78" cy="32" r="6" fill="#10b981"/>
+  <text x="362" y="36" text-anchor="middle" class="tui" fill="#a6adc8" font-size="12">Kubernetes Cluster — us-east-1</text>
+
+
+
+
+  <g transform="translate(35, 68)">
+
+    <rect x="0" y="0" width="140" height="24" rx="3" fill="#181825"/>
+    <text x="70" y="16" text-anchor="middle" class="tui dim" fill="#9399b2" font-size="12">Workloads</text>
+
+    <rect x="150" y="0" width="110" height="24" rx="3" fill="#cba6f7"/>
+    <text x="205" y="16" text-anchor="middle" class="tui bold" fill="#11111b" font-size="12">Pods</text>
+
+    <rect x="270" y="0" width="140" height="24" rx="3" fill="#181825"/>
+    <text x="340" y="16" text-anchor="middle" class="tui dim" fill="#9399b2" font-size="12">Ingresses</text>
+
+    <rect x="420" y="0" width="148" height="24" rx="3" fill="#181825"/>
+    <text x="494" y="16" text-anchor="middle" class="tui dim" fill="#9399b2" font-size="12">ConfigMaps</text>
+
+  </g>
+
+
+
+  <g transform="translate(35, 106)">
+
+    <rect x="0" y="0" width="654" height="176" rx="6" fill="#11111b" stroke="#313244" stroke-width="1.5"/>
+
+
+
+
+
+    <g transform="translate(16, 24)">
+      <text x="0" y="0" class="tui"><tspan x="0.00" class="bold" style="fill: #d946ef;">╭</tspan><tspan x="8.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="16.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="24.00" class="bold" style="fill: #d946ef;">&#160;kubectl&#160;get&#160;pods&#160;-n&#160;observability&#160;</tspan><tspan x="304.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="312.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="320.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="328.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="336.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="344.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="352.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="360.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="368.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="376.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="384.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="392.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="400.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="408.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="416.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="424.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="432.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="440.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="448.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="456.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="464.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="472.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="480.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="488.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="496.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="504.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="512.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="520.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="528.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="536.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="544.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="552.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="560.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="568.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="576.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="584.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="592.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="600.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="608.00" class="bold" style="fill: #d946ef;">╮</tspan></text>
+      <text x="0" y="21" class="tui"><tspan x="0.00">│</tspan><tspan x="8.00">&#160;&#160;</tspan><tspan x="24.00" class="bold">NAME&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;READY&#160;&#160;&#160;STATUS&#160;&#160;&#160;&#160;RESTARTS&#160;&#160;&#160;AGE&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="608.00" class="bold">│</tspan></text>
+      <text x="0" y="42" class="tui"><tspan x="0.00">│</tspan><tspan x="8.00">&#160;&#160;</tspan><tspan x="24.00" style="fill: #10b981;">otel-collector-7b94d9-a41&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1/1&#160;&#160;&#160;&#160;&#160;Running&#160;&#160;&#160;0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;42d&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="608.00" style="fill: #10b981;">│</tspan></text>
+      <text x="0" y="63" class="tui"><tspan x="0.00">│</tspan><tspan x="8.00">&#160;&#160;</tspan><tspan x="24.00" style="fill: #10b981;">loki-distributor-89c5-f90&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1/1&#160;&#160;&#160;&#160;&#160;Running&#160;&#160;&#160;0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;18d&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="608.00" style="fill: #10b981;">│</tspan></text>
+      <text x="0" y="84" class="tui"><tspan x="0.00">│</tspan><tspan x="8.00">&#160;&#160;</tspan><tspan x="24.00" style="fill: #10b981;">prometheus-k8s-0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;2/2&#160;&#160;&#160;&#160;&#160;Running&#160;&#160;&#160;1&#160;(14d)&#160;&#160;&#160;&#160;60d&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="608.00" style="fill: #10b981;">│</tspan></text>
+      <text x="0" y="105" class="tui"><tspan x="0.00">│</tspan><tspan x="8.00">&#160;&#160;</tspan><tspan x="24.00" style="fill: #f59e0b;">tempo-ingester-5f96b-k82&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1/1&#160;&#160;&#160;&#160;&#160;Running&#160;&#160;&#160;3&#160;(1h)&#160;&#160;&#160;&#160;&#160;4d&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</tspan><tspan x="608.00" style="fill: #f59e0b;">│</tspan></text>
+      <text x="0" y="126" class="tui"><tspan x="0.00" class="bold" style="fill: #d946ef;">╰</tspan><tspan x="8.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="16.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="24.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="32.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="40.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="48.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="56.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="64.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="72.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="80.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="88.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="96.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="104.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="112.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="120.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="128.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="136.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="144.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="152.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="160.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="168.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="176.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="184.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="192.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="200.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="208.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="216.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="224.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="232.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="240.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="248.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="256.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="264.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="272.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="280.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="288.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="296.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="304.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="312.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="320.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="328.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="336.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="344.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="352.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="360.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="368.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="376.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="384.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="392.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="400.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="408.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="416.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="424.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="432.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="440.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="448.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="456.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="464.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="472.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="480.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="488.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="496.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="504.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="512.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="520.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="528.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="536.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="544.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="552.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="560.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="568.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="576.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="584.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="592.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="600.00" class="bold" style="fill: #d946ef;">─</tspan><tspan x="608.00" class="bold" style="fill: #d946ef;">╯</tspan></text>
+
+
+    </g>
+  </g>
+</svg>
