@@ -3,7 +3,7 @@ module github.com/smford/terminal-to-svg
 go 1.26.0
 
 require (
-	github.com/smford/golang-term2svg v0.0.0-00010101000000-000000000000
+	github.com/smford/golang-term2svg v0.1.0
 	golang.org/x/term v0.47.0
 )
 
@@ -13,5 +13,3 @@ require (
 	github.com/mattn/go-runewidth v0.0.31 // indirect
 	golang.org/x/sys v0.49.0 // indirect
 )
-
-replace github.com/smford/golang-term2svg => ../golang-term2svg

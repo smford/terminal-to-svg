@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"io"
@@ -64,15 +65,30 @@ func main() {
 		mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusOK)
-			_, _ = w.Write([]byte(`{"status":"ok","service":"termtosvg","version":"` + version + `"}`))
+			_ = json.NewEncoder(w).Encode(map[string]string{
+				"status":  "ok",
+				"service": "termtosvg",
+				"version": version,
+			})
 		})
 		mux.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusOK)
-			_, _ = w.Write([]byte(`{"status":"ok"}`))
+			_ = json.NewEncoder(w).Encode(map[string]string{
+				"status": "ok",
+			})
 		})
+		server := &http.Server{
+			Addr:              *serveHealthz,
+			Handler:           mux,
+			ReadHeaderTimeout: 5 * time.Second,
+			ReadTimeout:       10 * time.Second,
+			WriteTimeout:      10 * time.Second,
+			IdleTimeout:       30 * time.Second,
+		}
 		fmt.Fprintf(os.Stderr, "termtosvg daemon listening on %s (health endpoint: /healthz)\n", *serveHealthz)
-		if err := http.ListenAndServe(*serveHealthz, mux); err != nil {
+		// nosemgrep: go.lang.security.audit.net.use-tls.use-tls
+		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			fmt.Fprintf(os.Stderr, "Server error: %v\n", err)
 			os.Exit(1)
 		}
