@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 393" width="650" height="393">
+  <defs>
+    <style>
+      .tui { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; font-variant-ligatures: none; fill: #e2e8f0; }
+      .dim { fill: #94a3b8; }
+      .dark-dim { fill: #64748b; }
+      .cyan { fill: #38bdf8; }
+      .green { fill: #10b981; font-weight: 700; }
+      .amber { fill: #f59e0b; font-weight: 700; }
+      .red { fill: #ef4444; font-weight: 700; }
+      .bold { font-weight: 700; }
+      .italic { font-style: italic; }
+      .underline { text-decoration: underline; }
+      @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      .cursor { animation: blink 1s infinite; fill: #e2e8f0; opacity: 0.8; }
+    </style>
+
+  </defs>
+
+
+
+  <rect x="0" y="0" width="650" height="393" rx="8" fill="#0f172a"/>
+
+
+
+
+
+  <g transform="translate(35, 68)">
+
+
+
+
+
+    <g transform="translate(16, 24)">
+      <text x="0" y="0" class="tui"><tspan x="0.00" class="bold" style="fill: #3b82f6;">$&#160;curl&#160;-i&#160;https://status.internal/healthz</tspan></text>
+      <text x="0" y="21" class="tui"><tspan x="0.00" class="bold">HTTP/2&#160;200&#160;OK</tspan></text>
+      <text x="0" y="42" class="tui"><tspan x="0.00" style="fill: #38bdf8;">content-type:</tspan><tspan x="104.00">&#160;application/json;&#160;charset=utf-8</tspan></text>
+      <text x="0" y="63" class="tui"><tspan x="0.00" style="fill: #38bdf8;">date:</tspan><tspan x="40.00">&#160;Sat,&#160;10&#160;Oct&#160;2026&#160;22:30:15&#160;GMT</tspan></text>
+      <text x="0" y="105" class="tui"><tspan x="0.00">{</tspan></text>
+      <text x="0" y="126" class="tui"><tspan x="0.00">&#160;&#160;</tspan><tspan x="16.00" style="fill: #10b981;">&#34;status&#34;</tspan><tspan x="80.00">:&#160;</tspan><tspan x="96.00" style="fill: #10b981;">&#34;healthy&#34;</tspan><tspan x="168.00">,</tspan></text>
+      <text x="0" y="147" class="tui"><tspan x="0.00">&#160;&#160;</tspan><tspan x="16.00" style="fill: #10b981;">&#34;version&#34;</tspan><tspan x="88.00">:&#160;</tspan><tspan x="104.00" style="fill: #10b981;">&#34;v3.12.0&#34;</tspan><tspan x="176.00">,</tspan></text>
+      <text x="0" y="168" class="tui"><tspan x="0.00">&#160;&#160;</tspan><tspan x="16.00" style="fill: #10b981;">&#34;cluster&#34;</tspan><tspan x="88.00">:&#160;</tspan><tspan x="104.00" style="fill: #10b981;">&#34;prod-k8s-eu&#34;</tspan><tspan x="208.00">,</tspan></text>
+      <text x="0" y="189" class="tui"><tspan x="0.00">&#160;&#160;</tspan><tspan x="16.00" style="fill: #10b981;">&#34;active_workers&#34;</tspan><tspan x="144.00">:&#160;</tspan><tspan x="160.00" style="fill: #f59e0b;">128</tspan></text>
+      <text x="0" y="210" class="tui"><tspan x="0.00">}</tspan></text>
+
+
+    </g>
+  </g>
+</svg>

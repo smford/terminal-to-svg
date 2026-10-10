@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>terminal-to-svg — Render Pixel-Perfect Terminal SVGs</title>
-  <meta name="description" content="Render pixel-perfect SVGs from terminal commands, live screen snapshots, tmux panes, and ANSI streams.">
+  <title>termtosvg — Vector Terminal Snapshots & SVG Screenshots</title>
+  <meta name="description" content="Generate crystal-clear, vector-crisp SVGs from terminal commands, live screen snapshots, ANSI log pipes, and tmux panes with macOS window chrome, themes, and secret masking.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=terminal-to-svg"></script>
@@ -18,177 +19,836 @@
 
   <style>
     :root {
-      --bg: #0d1117;
-      --card-bg: #161b22;
-      --border: #30363d;
-      --text: #c9d1d9;
-      --text-bright: #f0f6fc;
+      --bg-page: #0a0d12;
+      --bg-card: #11151c;
+      --bg-card-subtle: #161b22;
+      --border-subtle: #21262d;
+      --border-strong: #30363d;
+      --text-main: #f0f6fc;
+      --text-muted: #8b949e;
+      --text-dim: #6e7681;
       --accent: #58a6ff;
-      --accent-hover: #1f6feb;
+      --accent-hover: #388bfd;
+      --accent-glow: rgba(88, 166, 255, 0.15);
       --success: #3fb950;
-      --code-bg: #090d13;
+      --warn: #d29922;
+      --code-bg: #0d1117;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      font-family: var(--font-sans);
       line-height: 1.6;
-      padding: 0 1rem;
+      -webkit-font-smoothing: antialiased;
     }
-    header {
-      max-width: 960px;
-      margin: 3rem auto 2rem;
-      text-align: center;
+
+    /* Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 13, 18, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.85rem 1.5rem;
     }
-    h1 {
-      color: var(--text-bright);
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .badge {
-      display: inline-block;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-    }
-    .badge strong { color: var(--accent); }
-    .container {
-      max-width: 960px;
-      margin: 0 auto 4rem;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    h2 {
-      color: var(--text-bright);
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-    }
-    pre {
-      background: var(--code-bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1rem;
-      overflow-x: auto;
-      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-      font-size: 0.9rem;
-      color: #79c0ff;
-      margin-bottom: 1rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .feature-item {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1rem;
-    }
-    .feature-item h3 {
-      color: var(--text-bright);
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    a {
-      color: var(--accent);
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text-main);
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+    .brand-badge {
+      font-size: 0.75rem;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-strong);
+      padding: 2px 8px;
+      border-radius: 12px;
+      color: var(--accent);
+      font-family: var(--font-mono);
     }
-    .button-group {
+    .nav-links {
       display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin: 1.5rem 0;
+      gap: 1.5rem;
+      align-items: center;
     }
-    .btn {
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.15s ease;
+    }
+    .nav-link:hover { color: var(--accent); text-decoration: none; }
+    .nav-btn {
       background: var(--accent);
       color: #ffffff;
-      padding: 0.6rem 1.2rem;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+    .nav-btn:hover { background: var(--accent-hover); text-decoration: none; }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4.5rem 1rem 3.5rem;
+    }
+    .release-pill-wrapper {
+      margin-bottom: 1.5rem;
+    }
+    .release-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(88, 166, 255, 0.3);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: border-color 0.2s;
+    }
+    .release-pill:hover { border-color: var(--accent); text-decoration: none; }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(63, 185, 80, 0.8);
+    }
+    .hero h1 {
+      font-size: 3.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      background: linear-gradient(180deg, #ffffff 0%, #c9d1d9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    /* Quick Install Banner */
+    .quick-install-box {
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      background: var(--code-bg);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .quick-install-box code {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: #79c0ff;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+    .btn-copy {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-strong);
+      color: var(--text-muted);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-copy:hover {
+      background: var(--border-strong);
+      color: var(--text-main);
+    }
+
+    /* Hero CTA Buttons */
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      padding: 10px 22px;
       border-radius: 6px;
       font-weight: 600;
-      display: inline-block;
-    }
-    .btn:hover {
-      background: var(--accent-hover);
       text-decoration: none;
+      transition: background 0.15s ease;
     }
+    .btn-primary:hover { background: var(--accent-hover); text-decoration: none; }
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-strong);
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-secondary:hover { border-color: var(--accent); text-decoration: none; }
+
+    /* Featured Hero Visual */
+    .hero-preview {
+      margin: 3.5rem auto 1rem;
+      max-width: 1050px;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
+    }
+    .hero-preview img, .hero-preview svg {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* Section Typography */
+    section {
+      padding: 4.5rem 0 2rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2rem;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.4rem; }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1.75rem;
+      position: relative;
+    }
+
+    /* Tabbed Installation Component */
+    .install-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .install-tabs {
+      display: flex;
+      background: var(--bg-card-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      overflow-x: auto;
+    }
+    .install-tab-btn {
+      padding: 12px 20px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .install-tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      background: rgba(88, 166, 255, 0.05);
+    }
+    .install-tab-content {
+      padding: 1.75rem;
+      display: none;
+    }
+    .install-tab-content.active { display: block; }
+    .install-tab-content p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* Code Blocks */
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border-strong);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #79c0ff;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    code { font-family: var(--font-mono); }
+
+    /* Showcase Example Cards */
+    .showcase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .showcase-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+    }
+    .showcase-img-wrap {
+      background: #000000;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .showcase-img-wrap img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    .showcase-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .showcase-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+    .showcase-body p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .showcase-cmd {
+      margin-top: auto;
+      font-size: 0.8rem;
+      margin-bottom: 0;
+    }
+
+    /* Feature Pills */
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+    .pill-blue { background: rgba(88, 166, 255, 0.15); color: #79c0ff; }
+    .pill-green { background: rgba(63, 185, 80, 0.15); color: #7ee787; }
+    .pill-purple { background: rgba(187, 128, 255, 0.15); color: #d2a8ff; }
+    .pill-orange { background: rgba(210, 153, 34, 0.15); color: #e3b341; }
+
+    /* Comparison Table */
+    .table-responsive {
+      overflow-x: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    th {
+      background: var(--bg-card-subtle);
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 3rem 0;
+      margin-top: 5rem;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
-  <header>
-    <div class="badge">
-      Latest Release: <span id="release-version">v0.1.0</span>
-    </div>
-    <h1>terminal-to-svg</h1>
-    <p>Pixel-perfect terminal SVGs for documentation, GitHub READMEs, and CI/CD pipelines.</p>
-    <div class="button-group">
-      <a href="https://github.com/smford/terminal-to-svg" class="btn">View on GitHub</a>
-      <a href="https://github.com/smford/terminal-to-svg/releases/tag/v0.1.0" class="btn" style="background:#238636;">Release Notes (<span id="release-version-number">0.1.0</span>)</a>
-    </div>
-  </header>
 
-  <main class="container">
-    <div class="card">
-      <h2>Quick Install</h2>
-      <pre><code># Install via Homebrew
-brew install smford/tap/termtosvg
-
-# Or install with Go
-go install github.com/smford/terminal-to-svg/cmd/termtosvg@latest
-
-# Or run via Docker
-docker run --rm ghcr.io/smford/terminal-to-svg:v0.1.0 -version</code></pre>
-    </div>
-
-    <div class="card">
-      <h2>Usage Modes</h2>
-      <div class="grid">
-        <div class="feature-item">
-          <h3>1. Live Screen Snapshot</h3>
-          <p>Instantly captures what is currently rendered in your terminal window:</p>
-          <pre><code>termtosvg -o snapshot.svg</code></pre>
-        </div>
-        <div class="feature-item">
-          <h3>2. Execute Command</h3>
-          <p>Runs a command in a dedicated virtual PTY and renders the final frame:</p>
-          <pre><code>termtosvg -o top.svg -- top -b -n 1</code></pre>
-        </div>
-        <div class="feature-item">
-          <h3>3. Stdin ANSI Pipe</h3>
-          <p>Pipelines colored logs directly into crisp SVG diagrams:</p>
-          <pre><code>cat build.log | termtosvg -o build.svg</code></pre>
-        </div>
-        <div class="feature-item">
-          <h3>4. Tmux Pane Capture</h3>
-          <p>Capture any background or active tmux pane cleanly:</p>
-          <pre><code>termtosvg -tmux "%1" -o pane.svg</code></pre>
-        </div>
+  <!-- Sticky Navbar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="brand">
+        <span>⚡ termtosvg</span>
+        <span class="brand-badge" id="release-version">v0.1.0</span>
+      </a>
+      <div class="nav-links">
+        <a href="#install" class="nav-link">Installation</a>
+        <a href="#showcase" class="nav-link">Visual Gallery</a>
+        <a href="#modes" class="nav-link">Usage Modes</a>
+        <a href="#pipeline" class="nav-link">CI/CD Pipeline</a>
+        <a href="https://github.com/smford/terminal-to-svg" class="nav-btn" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
+  </nav>
 
-    <div class="card">
-      <h2>Enterprise DevSecOps Features</h2>
-      <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
-        <li><strong>Automatic Secret Masking:</strong> <code>-mask-secrets</code> redacts IPs, bearer tokens, JWTs, and passwords automatically.</li>
-        <li><strong>Multi-tab Window Frames:</strong> Native rendering of multiple editor/tab panes via <code>-tabs</code>.</li>
-        <li><strong>Subheader Cards & Badges:</strong> Display status labels, host names, and timestamps directly on the SVG header.</li>
-        <li><strong>Continuous Compliance:</strong> Full OpenSSF Scorecard, Semgrep, CodeQL, OWASP ZAP, and Cosign verified artifact releases.</li>
-      </ul>
-    </div>
+  <main class="container">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="release-pill-wrapper">
+        <a href="https://github.com/smford/terminal-to-svg/releases/tag/v0.1.0" class="release-pill" target="_blank" rel="noopener">
+          <span class="pulse-dot"></span>
+          <span>Latest Release: <strong id="release-version-number">0.1.0</strong> Available Now →</span>
+        </a>
+      </div>
+      <h1>Vector Terminal Snapshots<br>& SVG Screenshots</h1>
+      <p>Render pixel-perfect, lossless vector SVGs from terminal commands, live screen buffers, ANSI streams, and tmux panes. Styled with native macOS window chrome, themes, and automatic secret masking.</p>
+
+      <div class="quick-install-box">
+        <code>brew install smford/tap/termtosvg</code>
+        <button class="btn-copy" data-clipboard-text="brew install smford/tap/termtosvg">Copy</button>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#install" class="btn-primary">Get Started</a>
+        <a href="#showcase" class="btn-secondary">Explore Examples</a>
+      </div>
+
+      <!-- Featured Visual -->
+      <div class="hero-preview">
+        <img src="examples/00-tabs-nav.svg" alt="termtosvg multi-tab navigation console showcase" loading="eager">
+      </div>
+    </header>
+
+    <!-- Installation Methods -->
+    <section id="install">
+      <div class="section-header">
+        <h2 class="section-title">Installation Methods</h2>
+        <p class="section-subtitle">Install <code>termtosvg</code> via Homebrew, pre-compiled multi-arch binaries, Docker, or directly with Go.</p>
+      </div>
+
+      <div class="install-container">
+        <div class="install-tabs">
+          <button class="install-tab-btn active" onclick="switchTab(event, 'tab-brew')">🍺 Homebrew</button>
+          <button class="install-tab-btn" onclick="switchTab(event, 'tab-go')">🐹 Go Install</button>
+          <button class="install-tab-btn" onclick="switchTab(event, 'tab-docker')">🐳 Docker</button>
+          <button class="install-tab-btn" onclick="switchTab(event, 'tab-bin')">📦 Binary Release</button>
+          <button class="install-tab-btn" onclick="switchTab(event, 'tab-source')">🛠️ Build from Source</button>
+        </div>
+
+        <!-- Tab 1: Homebrew -->
+        <div id="tab-brew" class="install-tab-content active">
+          <p>For macOS and Linux users with Homebrew installed:</p>
+          <pre><code># Tap and install via Homebrew
+brew install smford/tap/termtosvg
+
+# Verify installation
+termtosvg -version</code></pre>
+        </div>
+
+        <!-- Tab 2: Go Install -->
+        <div id="tab-go" class="install-tab-content">
+          <p>Requires Go 1.24+ installed on your system:</p>
+          <pre><code># Install globally using Go
+go install github.com/smford/terminal-to-svg/cmd/termtosvg@latest
+
+# Verify binary is in your $GOPATH/bin or $PATH
+termtosvg -version</code></pre>
+        </div>
+
+        <!-- Tab 3: Docker -->
+        <div id="tab-docker" class="install-tab-content">
+          <p>Run without installing Go or local dependencies using our signed GHCR image:</p>
+          <pre><code># Pull and run the container
+docker run --rm -i ghcr.io/smford/terminal-to-svg:latest -version
+
+# Pipe command logs from host into container
+git status | docker run --rm -i ghcr.io/smford/terminal-to-svg:latest -o - -auto-crop > status.svg</code></pre>
+        </div>
+
+        <!-- Tab 4: Direct Download -->
+        <div id="tab-bin" class="install-tab-content">
+          <p>Download statically linked binaries signed with Cosign from GitHub Releases:</p>
+          <pre><code># macOS (Apple Silicon arm64)
+curl -sLO https://github.com/smford/terminal-to-svg/releases/download/v0.1.0/terminal-to-svg_0.1.0_darwin_arm64.tar.gz
+tar -xzf terminal-to-svg_0.1.0_darwin_arm64.tar.gz && sudo mv termtosvg /usr/local/bin/
+
+# Linux (x86_64 amd64)
+curl -sLO https://github.com/smford/terminal-to-svg/releases/download/v0.1.0/terminal-to-svg_0.1.0_linux_amd64.tar.gz
+tar -xzf terminal-to-svg_0.1.0_linux_amd64.tar.gz && sudo mv termtosvg /usr/local/bin/
+
+# Linux (ARM64)
+curl -sLO https://github.com/smford/terminal-to-svg/releases/download/v0.1.0/terminal-to-svg_0.1.0_linux_arm64.tar.gz
+tar -xzf terminal-to-svg_0.1.0_linux_arm64.tar.gz && sudo mv termtosvg /usr/local/bin/</code></pre>
+        </div>
+
+        <!-- Tab 5: Build from Source -->
+        <div id="tab-source" class="install-tab-content">
+          <p>Clone the repository and compile with Make:</p>
+          <pre><code>git clone https://github.com/smford/terminal-to-svg.git
+cd terminal-to-svg
+make build
+
+# Compiled binary is at ./bin/termtosvg and ./termtosvg
+./termtosvg -version</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Showcase Gallery -->
+    <section id="showcase">
+      <div class="section-header">
+        <h2 class="section-title">Visual Gallery & Themes</h2>
+        <p class="section-subtitle">Crisp vector SVGs rendered directly with <code>termtosvg</code>, demonstrating built-in themes, secret redaction, and multi-tab chrome.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Example 1 -->
+        <div class="showcase-card">
+          <div class="showcase-img-wrap">
+            <img src="examples/01-autocrop.svg" alt="Auto-crop and cursor demo" loading="lazy">
+          </div>
+          <div class="showcase-body">
+            <div>
+              <span class="pill pill-blue">Auto-Crop</span>
+              <span class="pill pill-green">Cursor</span>
+              <span class="pill pill-purple">Dark Theme</span>
+            </div>
+            <h3>Compact Auto-Crop with Blinking Cursor</h3>
+            <p>Automatically calculates bounding boxes of visible content to eliminate blank whitespace around terminal commands.</p>
+            <pre class="showcase-cmd"><code>git status | termtosvg -o status.svg -title "git status" -auto-crop -cursor</code></pre>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="showcase-card">
+          <div class="showcase-img-wrap">
+            <img src="examples/03-theme-catppuccin.svg" alt="Catppuccin theme and box-drawing" loading="lazy">
+          </div>
+          <div class="showcase-body">
+            <div>
+              <span class="pill pill-purple">Catppuccin</span>
+              <span class="pill pill-blue">Tabs</span>
+              <span class="pill pill-orange">Box-Drawing</span>
+            </div>
+            <h3>Catppuccin Theme & Pixel-Perfect Unicode Grid</h3>
+            <p>Renders Unicode box drawing characters (<code>U+2500</code>–<code>U+257F</code>) with explicit <code>x</code> coordinates to ensure clean alignment on all screens.</p>
+            <pre class="showcase-cmd"><code>kubectl get pods | termtosvg -theme catppuccin -tabs "Workloads,Pods" -active-tab 1 -auto-crop</code></pre>
+          </div>
+        </div>
+
+        <!-- Example 3 -->
+        <div class="showcase-card">
+          <div class="showcase-img-wrap">
+            <img src="examples/04-theme-nord.svg" alt="Nord Theme SRE SLO Matrix" loading="lazy">
+          </div>
+          <div class="showcase-body">
+            <div>
+              <span class="pill pill-blue">Nord Theme</span>
+              <span class="pill pill-green">Badges</span>
+              <span class="pill pill-purple">Subheader</span>
+            </div>
+            <h3>Nord Slate Theme & SRE Production Matrix</h3>
+            <p>Arctic palette designed for SRE dashboards, including custom status badges (<code>-badge</code>) and subheader titles (<code>-header</code>).</p>
+            <pre class="showcase-cmd"><code>termtosvg -theme nord -title "SRE Dashboard" -header "SLO Latency" -badge "ON-CALL: ACTIVE"</code></pre>
+          </div>
+        </div>
+
+        <!-- Example 4 -->
+        <div class="showcase-card">
+          <div class="showcase-img-wrap">
+            <img src="examples/02-theme-light.svg" alt="Light theme logs" loading="lazy">
+          </div>
+          <div class="showcase-body">
+            <div>
+              <span class="pill pill-orange">Light Theme</span>
+              <span class="pill pill-blue">Logging</span>
+              <span class="pill pill-green">Docs Ready</span>
+            </div>
+            <h3>Light Theme for Whitepapers & Print</h3>
+            <p>High-contrast daylight theme designed specifically for light-mode documentation, print publications, and blog posts.</p>
+            <pre class="showcase-cmd"><code>curl -i https://api.internal/metrics | termtosvg -theme light -badge "STATE: HEALTHY" -auto-crop</code></pre>
+          </div>
+        </div>
+
+        <!-- Example 5 -->
+        <div class="showcase-card">
+          <div class="showcase-img-wrap">
+            <img src="examples/07-redaction.svg" alt="Security Redaction Engine" loading="lazy">
+          </div>
+          <div class="showcase-body">
+            <div>
+              <span class="pill pill-green">DevSecOps</span>
+              <span class="pill pill-orange">Auto-Masking</span>
+              <span class="pill pill-blue">Sanitization</span>
+            </div>
+            <h3>Automated Secret Redaction Engine</h3>
+            <p>Using <code>-mask-secrets</code> automatically detects and redacts IPv4/IPv6 addresses, Bearer tokens, passwords, and JWT credentials before rendering.</p>
+            <pre class="showcase-cmd"><code>cat auth.log | termtosvg -mask-secrets -title "Sanitized Audit" -badge "SANITIZED: TRUE"</code></pre>
+          </div>
+        </div>
+
+        <!-- Example 6 -->
+        <div class="showcase-card">
+          <div class="showcase-img-wrap">
+            <img src="examples/05-theme-frameless.svg" alt="Frameless Markdown Card" loading="lazy">
+          </div>
+          <div class="showcase-body">
+            <div>
+              <span class="pill pill-purple">Frameless</span>
+              <span class="pill pill-blue">Markdown Embed</span>
+              <span class="pill pill-green">Minimalist</span>
+            </div>
+            <h3>Frameless Mode for Clean README Embeds</h3>
+            <p>Omits the top macOS window controls and titlebar entirely, creating sleek, modern code callout cards.</p>
+            <pre class="showcase-cmd"><code>curl -s https://api.io/health | termtosvg -theme frameless -auto-crop</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Usage Modes -->
+    <section id="modes">
+      <div class="section-header">
+        <h2 class="section-title">4 Flexible Usage Modes</h2>
+        <p class="section-subtitle">Snapshot live terminal windows, execute subprocesses in virtual PTYs, pipe ANSI logs, or capture tmux sessions.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>1. Live Screen Snapshot</h3>
+          <p style="color:var(--text-muted); margin-bottom:1rem;">Capture exactly what is visible in your active terminal window right now:</p>
+          <pre><code># Capture the open terminal window
+termtosvg -o screenshot.svg -auto-crop</code></pre>
+        </div>
+
+        <div class="card">
+          <h3>2. Execute Command in Virtual PTY</h3>
+          <p style="color:var(--text-muted); margin-bottom:1rem;">Spawn a command inside a virtual pseudo-terminal and capture its final frame:</p>
+          <pre><code># Run htop/top or any CLI tool
+termtosvg -o top.svg -- top -b -n 1</code></pre>
+        </div>
+
+        <div class="card">
+          <h3>3. Stdin ANSI Pipeline</h3>
+          <p style="color:var(--text-muted); margin-bottom:1rem;">Pipe colored output directly from standard input for seamless shell scripting:</p>
+          <pre><code># Stream logs or build output
+cat deploy.log | termtosvg -o deploy.svg -theme nord</code></pre>
+        </div>
+
+        <div class="card">
+          <h3>4. Tmux Pane Capture</h3>
+          <p style="color:var(--text-muted); margin-bottom:1rem;">Target specific tmux windows or background pane IDs cleanly:</p>
+          <pre><code># Capture current or designated tmux pane
+termtosvg -tmux "%1" -o pane.svg</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- CI/CD Pipeline Section -->
+    <section id="pipeline">
+      <div class="section-header">
+        <h2 class="section-title">CI/CD Pipeline Automation</h2>
+        <p class="section-subtitle">Embed live visual build artifacts, test matrices, and security compliance badges directly into PRs and documentation.</p>
+      </div>
+
+      <div class="card">
+        <div style="margin-bottom: 1.5rem;">
+          <img src="examples/12-pipeline-ci.svg" alt="CI/CD Pipeline Test Matrix SVG" style="width:100%; border-radius:6px;">
+        </div>
+        <h3>GitHub Actions Workflow Example</h3>
+        <p style="color:var(--text-muted); margin-bottom:1rem;">Generate an SVG verification badge on every push and attach it as a downloadable build artifact:</p>
+        <pre><code>name: CI & Visual Artifact
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+
+      - name: Install termtosvg
+        run: go install github.com/smford/terminal-to-svg/cmd/termtosvg@latest
+
+      - name: Run Tests & Capture Visual Matrix
+        run: |
+          go test -v ./... 2>&1 | termtosvg \
+            -o docs/test-report.svg \
+            -title "Go Test Suite — GitHub Actions" \
+            -header "Automated Test Matrix" \
+            -badge "STATUS: PASSED" \
+            -auto-crop
+
+      - name: Upload Report SVG
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-test-report
+          path: docs/test-report.svg</code></pre>
+      </div>
+    </section>
+
+    <!-- DevSecOps Compliance Table -->
+    <section id="security">
+      <div class="section-header">
+        <h2 class="section-title">Enterprise DevSecOps Standards</h2>
+        <p class="section-subtitle">Built with zero-trust supply chain security and verified with modern scanning tools.</p>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Security Layer</th>
+              <th>Tool / Mechanism</th>
+              <th>Protection Benefit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Static Analysis (SAST)</strong></td>
+              <td>GitHub CodeQL + Semgrep OSS</td>
+              <td>Semantic taint tracking & vulnerability detection on every PR.</td>
+            </tr>
+            <tr>
+              <td><strong>Dynamic Analysis (DAST)</strong></td>
+              <td>OWASP ZAP Baseline Scan</td>
+              <td>Automated security scan against daemon readiness & health endpoints.</td>
+            </tr>
+            <tr>
+              <td><strong>Supply Chain Security</strong></td>
+              <td>OpenSSF Scorecard + Cosign</td>
+              <td>Full provenance checking and cryptographic signature verification.</td>
+            </tr>
+            <tr>
+              <td><strong>Secret Leak Protection</strong></td>
+              <td>Pre-commit hooks & CLI Regex Engine</td>
+              <td>Stops credential leakage into git history and rendered SVGs.</td>
+            </tr>
+            <tr>
+              <td><strong>SRE Quality Gates</strong></td>
+              <td><code>gh-stats</code> PR blast-radius auditing</td>
+              <td>Automated DORA metrics and risk-budget evaluations on pull requests.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Released under the <a href="https://github.com/smford/terminal-to-svg/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>. Maintained by <a href="https://github.com/smford" target="_blank" rel="noopener">@smford</a>.</p>
+      <p style="margin-top: 8px;">Documentation powered by GitHub Pages with privacy-aware GA4 analytics.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(evt, tabId) {
+      document.querySelectorAll('.install-tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.install-tab-content').forEach(content => content.classList.remove('active'));
+      evt.currentTarget.classList.add('active');
+      const target = document.getElementById(tabId);
+      if (target) target.classList.add('active');
+    }
+
+    // Copy command helper
+    document.querySelectorAll('.btn-copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const text = btn.getAttribute('data-clipboard-text');
+        if (text) {
+          navigator.clipboard.writeText(text).then(() => {
+            const original = btn.innerText;
+            btn.innerText = 'Copied!';
+            btn.style.color = '#3fb950';
+            setTimeout(() => {
+              btn.innerText = original;
+              btn.style.color = '';
+            }, 2000);
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 748 341" width="748" height="341">
+  <defs>
+    <style>
+      .tui { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; font-variant-ligatures: none; fill: #0f172a; }
+      .dim { fill: #94a3b8; }
+      .dark-dim { fill: #64748b; }
+      .cyan { fill: #38bdf8; }
+      .green { fill: #10b981; font-weight: 700; }
+      .amber { fill: #f59e0b; font-weight: 700; }
+      .red { fill: #ef4444; font-weight: 700; }
+      .bold { font-weight: 700; }
+      .italic { font-style: italic; }
+      .underline { text-decoration: underline; }
+      @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      .cursor { animation: blink 1s infinite; fill: #0f172a; opacity: 0.8; }
+    </style>
+
+    <filter id="winShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+  </defs>
+
+
+
+  <rect x="15" y="15" width="718" height="311" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" filter="url(#winShadow)"/>
+
+
+  <path d="M 15 27 Q 15 15 27 15 L 721 15 Q 733 15 733 27 L 733 50 L 15 50 Z" fill="#e2e8f0"/>
+  <line x1="15" y1="50" x2="733" y2="50" stroke="#cbd5e1" stroke-width="1"/>
+
+
+  <circle cx="38" cy="32" r="6" fill="#ef4444"/>
+  <circle cx="58" cy="32" r="6" fill="#f59e0b"/>
+  <circle cx="78" cy="32" r="6" fill="#10b981"/>
+  <text x="374" y="36" text-anchor="middle" class="tui" fill="#475569" font-size="12">OpenTelemetry Collector — Service Logs</text>
+
+
+
+
+
+  <g transform="translate(35, 68)">
+
+    <rect x="0" y="0" width="678" height="208" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+
+
+
+
+    <g transform="translate(16, 24)">
+
+      <text x="0" y="0" class="tui bold" fill="#0f172a">Telemetry Exporter Daemon (OTel / Prometheus)</text>
+
+
+
+
+      <rect x="512" y="-13" width="136" height="18" fill="#10b981" rx="2"/>
+      <text x="580" y="0" text-anchor="middle" class="tui bold" fill="#ffffff" font-size="11">STATE: HEALTHY</text>
+
+    </g>
+    <line x1="16" y1="36" x2="662" y2="36" stroke="#e2e8f0" stroke-width="1"/>
+
+
+
+    <g transform="translate(16, 56)">
+      <text x="0" y="0" class="tui"><tspan x="0.00" style="fill: #6c6c6c;">2026-10-10&#160;22:30:00</tspan><tspan x="152.00">&#160;</tspan><tspan x="160.00" class="bold" style="fill: #10b981;">INFO</tspan><tspan x="192.00">&#160;&#160;HTTP&#160;GET&#160;/api/v2/metrics&#160;</tspan><tspan x="408.00" style="fill: #3b82f6;">status</tspan><tspan x="456.00">=200&#160;</tspan><tspan x="496.00" style="fill: #3b82f6;">duration</tspan><tspan x="560.00">=4.2ms&#160;</tspan><tspan x="616.00" style="fill: #3b82f6;">cal</tspan></text>
+      <text x="0" y="21" class="tui"><tspan x="0.00" style="fill: #3b82f6;">ler</tspan><tspan x="24.00">=prometheus-scraper</tspan></text>
+      <text x="0" y="42" class="tui"><tspan x="0.00" style="fill: #6c6c6c;">2026-10-10&#160;22:30:01</tspan><tspan x="152.00">&#160;</tspan><tspan x="160.00" class="bold" style="fill: #10b981;">INFO</tspan><tspan x="192.00">&#160;&#160;gRPC&#160;ListEndpoints&#160;</tspan><tspan x="360.00" style="fill: #3b82f6;">count</tspan><tspan x="400.00">=48&#160;</tspan><tspan x="432.00" style="fill: #3b82f6;">healthy</tspan><tspan x="488.00">=48&#160;</tspan><tspan x="520.00" style="fill: #3b82f6;">zone</tspan><tspan x="552.00">=us-east-1a</tspan></text>
+      <text x="0" y="63" class="tui"><tspan x="0.00" style="fill: #6c6c6c;">2026-10-10&#160;22:30:03</tspan><tspan x="152.00">&#160;</tspan><tspan x="160.00" class="bold" style="fill: #f59e0b;">WARN</tspan><tspan x="192.00">&#160;&#160;Cache&#160;evictions&#160;high&#160;</tspan><tspan x="376.00" style="fill: #3b82f6;">rate</tspan><tspan x="408.00">=420/s&#160;</tspan><tspan x="464.00" style="fill: #3b82f6;">threshold</tspan><tspan x="536.00">=350/s&#160;</tspan><tspan x="592.00" style="fill: #3b82f6;">cache</tspan><tspan x="632.00">=</tspan></text>
+      <text x="0" y="84" class="tui"><tspan x="0.00">redis-cluster-01</tspan></text>
+      <text x="0" y="105" class="tui"><tspan x="0.00" style="fill: #6c6c6c;">2026-10-10&#160;22:30:05</tspan><tspan x="152.00">&#160;</tspan><tspan x="160.00" class="bold" style="fill: #10b981;">INFO</tspan><tspan x="192.00">&#160;&#160;TLS&#160;certificate&#160;renewal&#160;check&#160;</tspan><tspan x="448.00" style="fill: #3b82f6;">domain</tspan><tspan x="496.00">=api.internal&#160;</tspan><tspan x="608.00" style="fill: #3b82f6;">vali</tspan></text>
+      <text x="0" y="126" class="tui"><tspan x="0.00" style="fill: #3b82f6;">d_days</tspan><tspan x="48.00">=72</tspan></text>
+
+
+    </g>
+  </g>
+</svg>

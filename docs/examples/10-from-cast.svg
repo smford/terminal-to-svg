@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 724 446" width="724" height="446">
+  <defs>
+    <style>
+      .tui { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; font-size: 13px; font-variant-ligatures: none; fill: #e2e8f0; }
+      .dim { fill: #94a3b8; }
+      .dark-dim { fill: #64748b; }
+      .cyan { fill: #38bdf8; }
+      .green { fill: #10b981; font-weight: 700; }
+      .amber { fill: #f59e0b; font-weight: 700; }
+      .red { fill: #ef4444; font-weight: 700; }
+      .bold { font-weight: 700; }
+      .italic { font-style: italic; }
+      .underline { text-decoration: underline; }
+      @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+      .cursor { animation: blink 1s infinite; fill: #e2e8f0; opacity: 0.8; }
+    </style>
+
+    <filter id="winShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+  </defs>
+
+
+
+  <rect x="15" y="15" width="694" height="416" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5" filter="url(#winShadow)"/>
+
+
+  <path d="M 15 27 Q 15 15 27 15 L 697 15 Q 709 15 709 27 L 709 50 L 15 50 Z" fill="#1e293b"/>
+  <line x1="15" y1="50" x2="709" y2="50" stroke="#334155" stroke-width="1"/>
+
+
+  <circle cx="38" cy="32" r="6" fill="#ef4444"/>
+  <circle cx="58" cy="32" r="6" fill="#f59e0b"/>
+  <circle cx="78" cy="32" r="6" fill="#10b981"/>
+  <text x="362" y="36" text-anchor="middle" class="tui" fill="#64748b" font-size="12">Kubernetes Incident Remediation Workflow</text>
+
+
+
+
+
+  <g transform="translate(35, 68)">
+
+    <rect x="0" y="0" width="654" height="313" rx="6" fill="#121826" stroke="#3d4255" stroke-width="1.5"/>
+
+
+
+
+    <g transform="translate(16, 24)">
+
+      <text x="0" y="0" class="tui bold" fill="#e2e8f0">Incident Remediation Replay</text>
+
+
+
+
+      <rect x="472" y="-13" width="152" height="18" fill="#10b981" rx="2"/>
+      <text x="548" y="0" text-anchor="middle" class="tui bold" fill="#ffffff" font-size="11">STATUS: RESOLVED</text>
+
+    </g>
+    <line x1="16" y1="36" x2="638" y2="36" stroke="#3d4255" stroke-width="1"/>
+
+
+
+    <g transform="translate(16, 56)">
+      <text x="0" y="0" class="tui"><tspan x="0.00" class="bold" style="fill: #38bdf8;">➜&#160;&#160;~&#160;</tspan><tspan x="40.00">kubectl&#160;get&#160;pods&#160;-n&#160;prod</tspan></text>
+      <text x="0" y="21" class="tui"><tspan x="0.00" class="bold">NAME&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;READY&#160;&#160;&#160;STATUS&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RESTARTS&#160;&#160;&#160;AGE</tspan></text>
+      <text x="0" y="42" class="tui"><tspan x="0.00" style="fill: #10b981;">auth-service-79fbb8-k41&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1/1&#160;&#160;&#160;&#160;&#160;Running&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;12d</tspan></text>
+      <text x="0" y="63" class="tui"><tspan x="0.00" style="fill: #10b981;">payment-gateway-6495d-m90&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1/1&#160;&#160;&#160;&#160;&#160;Running&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;4d</tspan></text>
+      <text x="0" y="84" class="tui"><tspan x="0.00" class="bold" style="fill: #ef4444;">order-processor-5f82c-x12&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0/1&#160;&#160;&#160;&#160;&#160;CrashLoopBackOff&#160;&#160;&#160;14&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;32m</tspan></text>
+      <text x="0" y="126" class="tui"><tspan x="0.00" class="bold" style="fill: #f59e0b;">[!]&#160;SRE&#160;Alert&#160;Triggered:</tspan><tspan x="192.00">&#160;High&#160;error&#160;budget&#160;burn&#160;on&#160;order-processor</tspan></text>
+      <text x="0" y="147" class="tui"><tspan x="0.00" class="bold" style="fill: #38bdf8;">➜&#160;&#160;~&#160;</tspan><tspan x="40.00">kubectl&#160;rollout&#160;undo&#160;deployment/order-processor&#160;-n&#160;prod</tspan></text>
+      <text x="0" y="168" class="tui"><tspan x="0.00" style="fill: #10b981;">deployment.apps/order-processor&#160;rolled&#160;back&#160;to&#160;revision&#160;41</tspan></text>
+      <text x="0" y="210" class="tui"><tspan x="0.00" class="bold" style="fill: #10b981;">✔&#160;Verification:</tspan><tspan x="120.00">&#160;Pod&#160;</tspan><tspan x="160.00" style="fill: #10b981;">order-processor-41a9c-z08</tspan><tspan x="360.00">&#160;is&#160;now&#160;</tspan><tspan x="424.00" class="bold" style="fill: #10b981;">1/1&#160;Running</tspan><tspan x="512.00">&#160;(0&#160;restarts)</tspan></text>
+      <text x="0" y="231" class="tui"><tspan x="0.00" class="bold" style="fill: #38bdf8;">➜&#160;&#160;~</tspan></text>
+
+
+      <rect x="40" y="220" width="8" height="13" class="cursor"/>
+
+    </g>
+  </g>
+</svg>
