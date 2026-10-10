@@ -1,0 +1,28 @@
+# .gh-stats.yml - Configuration for gh-stats SRE Code Health Analysis
+# https://github.com/smford/gh-stats
+
+thresholds:
+  max_pr_lines: 3000
+  stale_pr_days: 14
+  min_test_ratio: 0.0
+  max_discussions: 15
+  commit_limit: 250
+  max_ci_latency_minutes: 15
+  fail_on_flaky_ci: false
+
+blast_radius:
+  custom_patterns:
+    - category: "CLI Engine"
+      pattern: "cmd/**"
+      description: "CLI entry point and command-line parsing"
+    - category: "CI/CD & Release Automation"
+      pattern: ".github/workflows/**"
+      description: "GitHub Actions workflow automation and release pipelines"
+
+ignore:
+  paths:
+    - "vendor/**"
+    - "**/*_gen.go"
+    - "docs/**"
+    - "examples/**"
+    - "*.md"
