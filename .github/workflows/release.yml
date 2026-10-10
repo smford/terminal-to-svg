@@ -46,14 +46,18 @@ jobs:
 
       - name: Calculate and Apply Version Tag
         id: version
+        env:
+          REF_NAME: ${{ github.ref }}
+          EVENT_NAME: ${{ github.event_name }}
+          BUMP_INPUT: ${{ inputs.bump_type || github.event.inputs.bump_type }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git fetch --tags --force
 
           # If triggered directly by a tag push
-          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
-            TAG="${GITHUB_REF#refs/tags/}"
+          if [[ "$REF_NAME" == refs/tags/v* ]]; then
+            TAG="${REF_NAME#refs/tags/}"
             echo "Triggered by existing tag push: $TAG"
             echo "tag=$TAG" >> "$GITHUB_OUTPUT"
             echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
@@ -76,7 +80,7 @@ jobs:
           echo "Latest existing tag: $LATEST_TAG"
 
           # Verify that application code actually changed since latest tag (unless manual dispatch)
-          if [ "$LATEST_TAG" != "v0.0.0" ] && [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+          if [ "$LATEST_TAG" != "v0.0.0" ] && [ "$EVENT_NAME" != "workflow_dispatch" ]; then
             APP_DIFF=$(git diff --name-only "$LATEST_TAG"..HEAD -- 'cmd/**' 'go.mod' 'go.sum' 'Dockerfile' '.goreleaser.yaml')
             if [ -z "$APP_DIFF" ]; then
               echo "No application code changes detected since $LATEST_TAG. Skipping release."
@@ -95,7 +99,7 @@ jobs:
           MINOR=${MINOR:-0}
           PATCH=${PATCH:-0}
 
-          BUMP="${{ github.event.inputs.bump_type }}"
+          BUMP="$BUMP_INPUT"
           if [ -z "$BUMP" ]; then
             # Inspect commits since latest tag for conventional commit prefix
             COMMITS=$(git log "$LATEST_TAG"..HEAD --oneline 2>/dev/null || git log --oneline)
@@ -176,9 +180,10 @@ jobs:
 
       - name: Generate Homebrew Formula
         id: formula
+        env:
+          TAG_NAME: ${{ needs.prepare-release.outputs.tag }}
+          VERSION: ${{ needs.prepare-release.outputs.version }}
         run: |
-          TAG_NAME="${{ needs.prepare-release.outputs.tag }}"
-          VERSION="${{ needs.prepare-release.outputs.version }}"
           echo "Generating formula for $TAG_NAME (version $VERSION)..."
           chmod +x scripts/generate_formula.sh
           ./scripts/generate_formula.sh "$VERSION" "$TAG_NAME" "dist" "dist/termtosvg.rb"
