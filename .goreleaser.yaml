@@ -45,7 +45,7 @@ dockers_v2:
       - "{{ .Tag }}"
       - "v{{ .Major }}.{{ .Minor }}"
       - "v{{ .Major }}"
-    dockerfile: Dockerfile
+    dockerfile: Dockerfile.goreleaser
     platforms:
       - linux/amd64
       - linux/arm64

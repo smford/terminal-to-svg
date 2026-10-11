@@ -1,0 +1,23 @@
+FROM alpine:3.24@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6
+
+# Install ca-certificates and tzdata
+RUN apk add --no-cache ca-certificates tzdata
+
+# Create non-root user and home directory
+RUN addgroup -S termtosvg && adduser -S termtosvg -G termtosvg && \
+    mkdir -p /home/termtosvg && \
+    chown -R termtosvg:termtosvg /home/termtosvg
+
+ARG TARGETPLATFORM
+COPY ${TARGETPLATFORM}/termtosvg /usr/local/bin/termtosvg
+
+USER termtosvg
+WORKDIR /home/termtosvg
+
+EXPOSE 8080
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+    CMD wget -q -O- http://127.0.0.1:8080/healthz || exit 1
+
+ENTRYPOINT ["/usr/local/bin/termtosvg"]
+CMD ["-serve-healthz", ":8080"]
